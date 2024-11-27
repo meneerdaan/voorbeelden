@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "naam": "Egel",
+    "hobby": "Snuffelen in de tuin"
+  },
+  {
+    "id": 2,
+    "naam": "Duif",
+    "hobby": "Al het vogelvoer opvreten"
+  },
+  {
+    "id": 3,
+    "naam": "Mens",
+    "hobby": "Naar schermpje turen"
+  }
+]
