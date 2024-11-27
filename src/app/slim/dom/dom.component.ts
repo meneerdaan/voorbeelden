@@ -14,4 +14,5 @@ import {JsonPipe} from '@angular/common';
 export class DomComponent {
 
   testdata = input<Testdata[]>();
+  testdataRequired = input.required<Testdata[]>();
 }

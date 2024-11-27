@@ -1,4 +1,4 @@
-import {Component, inject, Signal} from '@angular/core';
+import {Component, computed, inject, Signal} from '@angular/core';
 import {VoorbeeldService} from '../voorbeeld.service';
 import {DomComponent} from './dom/dom.component';
 import {AsyncPipe, JsonPipe} from '@angular/common';
@@ -24,4 +24,8 @@ export default class SlimComponent {
   protected readonly testdata$: Observable<Testdata[]> = this.voorbeeldService.getAll();
   protected readonly testdataToSignal: Signal<Testdata[] | undefined> = toSignal(this.voorbeeldService.getAll());
 
+  protected readonly testdataComputed = computed(() =>
+    this.testdataToSignal()?.map((testdata) => ({...testdata, id: testdata.id + 1})));
+
+  protected readonly testdataToSignalMetCast: Signal<Testdata[]> = toSignal(this.voorbeeldService.getAll()) as Signal<Testdata[]>;
 }

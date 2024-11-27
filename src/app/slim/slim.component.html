@@ -1,20 +1,35 @@
-<h2>Begin slim component</h2>
+<h2>Slim component</h2>
 <p>testdata$: {{ testdata$ | json }}</p>
 <p>testdataSignal: {{ testdataToSignal() | json }}</p>
+<p>testdataComputed: {{ testdataComputed() | json }}</p>
 
 <h3>Via async pipe</h3>
 <app-dom
   [testdata]="(testdata$ | async)!"
+  [testdataRequired]="(testdata$ | async)!"
 />
 of
 @if (testdata$ | async; as testdata) {
   <app-dom
     [testdata]="testdata"
+    [testdataRequired]="testdata"
   />
 }
 
 <h3>Via signal</h3>
 <app-dom
   [testdata]="testdataToSignal()"
+  [testdataRequired]="testdataToSignal()!"
 />
-<h2>Einde slim component</h2>
+
+<h3>Via computed</h3>
+<app-dom
+  [testdata]="testdataComputed()"
+  [testdataRequired]="testdataComputed()!"
+/>
+
+<h3>Via signal met cast</h3>
+<app-dom
+  [testdata]="testdataToSignalMetCast()"
+  [testdataRequired]="testdataToSignalMetCast()"
+/>
